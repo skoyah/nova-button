@@ -10,9 +10,9 @@
         </span>
         <div v-else :class="{'block text-right': field.indexAlign == 'right'}">
             <a class="whitespace-no-wrap" :class="field.classes" v-html="field.text" @click="openModal = true" />
-            <portal to="modals">
+            <portal to="modals" v-if="openModal">
                 <transition name="fade">
-                     <modal v-if="openModal" @modal-close="openModal = false">
+                     <modal @modal-close="openModal = false">
                         <form class="bg-white rounded-lg shadow-lg overflow-hidden" style="width: 460px;">
                             <div class="p-8">
                                 <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
